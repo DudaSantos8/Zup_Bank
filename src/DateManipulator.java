@@ -1,4 +1,5 @@
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class DateManipulator {
@@ -13,5 +14,21 @@ public class DateManipulator {
             System.out.println("não deu certo");
         }
         return date;
+    }
+
+    public static int getMontDifferenceOfTwoDates(Date actualDate, Date futureDate){
+        Calendar actualCalendar = Calendar.getInstance();
+        Calendar futureCalendar = Calendar.getInstance();
+
+        actualCalendar.setTime(actualDate);
+        futureCalendar.setTime(futureDate);
+
+        int actualMont = actualCalendar.get(Calendar.MONTH);
+        int actualYears = actualCalendar.get(Calendar.YEAR);
+
+        int futureMont = futureCalendar.get(Calendar.MONTH);
+        int futureYears = futureCalendar.get(Calendar.YEAR);
+
+        return (futureYears - actualYears) * 12 + (futureMont - actualMont);
     }
 }
