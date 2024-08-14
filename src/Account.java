@@ -43,4 +43,20 @@ public abstract class Account {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+
+    public double withdrawalCash(double value){
+        balance -= value;
+        return balance;
+    }
+
+    public double deposit(double value){
+        balance += value;
+        return balance;
+    }
+
+    public double transferMoney(Account destinyAccount, double value){
+        this.withdrawalCash(value);
+        destinyAccount.deposit(value);
+        return balance;
+    }
 }
