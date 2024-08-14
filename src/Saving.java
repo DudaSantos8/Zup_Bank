@@ -1,3 +1,4 @@
+import java.time.Instant;
 import java.util.Date;
 
 public class Saving extends Account {
@@ -17,7 +18,8 @@ public class Saving extends Account {
     }
 
     public double simulateIncome(double value, Date limitDate){
-        // Todo
-        return 0;
+        int months = DateManipulator.getMontDifferenceOfTwoDates(Date.from(Instant.now()), limitDate);
+
+        return (value * this.financialIncome) * months + value;
     }
 }
