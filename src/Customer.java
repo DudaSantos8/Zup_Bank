@@ -67,15 +67,4 @@ public class Customer {
         this.address = address;
     }
 
-    public static Date createBirthDate(String dateString){
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        Date date = null;
-        try{
-            date = sdf.parse(dateString);
-
-        }catch (Exception e){
-            System.out.println("não deu certo");
-        }
-        return date;
-    }
 }
