@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Customer {
@@ -64,5 +65,17 @@ public class Customer {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public static Date createBirthDate(String dateString){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = null;
+        try{
+            date = sdf.parse(dateString);
+
+        }catch (Exception e){
+            System.out.println("não deu certo");
+        }
+        return date;
     }
 }
