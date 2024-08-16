@@ -16,7 +16,7 @@ public class DateManipulator {
         return date;
     }
 
-    public static int getMontDifferenceOfTwoDates(Date actualDate, Date futureDate){
+    public static int getMonthDifferenceOfTwoDates(Date actualDate, Date futureDate){
         Calendar actualCalendar = Calendar.getInstance();
         Calendar futureCalendar = Calendar.getInstance();
 
