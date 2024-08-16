@@ -9,18 +9,20 @@ public class App {
         );
 
         Current currentAccount = new Current(
-                100, 123, 456,
+                100, 100, 123, 456,
                 new Customer("Marco", "312454", DateManipulator.createDateByString("16/08/1994"), "xablau@com", "12345",
                         new Address("1234", "Rua xablau numero 3", "12b")
                 )
         );
 
         try {
-            savingAccount.transferMoney(currentAccount, 200);
+            currentAccount.transferMoney(savingAccount,200);
         }catch (RuntimeException e){
             System.out.println(e.getMessage());
         }
+        System.out.println("Saldo da conta corrente mais o cheque especial: "+(currentAccount.getSpecialCheck()+currentAccount.getBalance()));
         System.out.println("Saldo da poupança: "+savingAccount.getBalance());
+
     }
 
 }

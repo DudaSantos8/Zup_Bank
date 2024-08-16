@@ -18,16 +18,16 @@ public class Saving extends Account {
     }
 
     public double simulateIncome(double value, Date limitDate){
-        int months = DateManipulator.getMontDifferenceOfTwoDates(Date.from(Instant.now()), limitDate);
-
+        int months = DateManipulator.getMonthDifferenceOfTwoDates(Date.from(Instant.now()), limitDate);
         return (value * this.financialIncome) * months + value;
     }
 
     @Override
     public double transferMoney(Account destinyAccount, double value) {
-        if(getBalance() < value){
-            throw new RuntimeException("Dinheiro em poupança insuficiente");
-        }
-        return super.transferMoney(destinyAccount, value);
+        AccountValidation.validationMoneyAccount(destinyAccount, value);
+        this.withdrawalCash(value);
+        destinyAccount.deposit(value);
+        return super.transferMoney(destinyAccount,value);
     }
+
 }
