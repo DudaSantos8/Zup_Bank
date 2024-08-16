@@ -15,7 +15,12 @@ public class App {
                 )
         );
 
-        System.out.println(savingAccount.simulateIncome(1000, DateManipulator.createDateByString("14/12/2024")));
+        try {
+            savingAccount.transferMoney(currentAccount, 200);
+        }catch (RuntimeException e){
+            System.out.println(e.getMessage());
+        }
+        System.out.println("Saldo da poupança: "+savingAccount.getBalance());
     }
 
 }

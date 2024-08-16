@@ -22,4 +22,12 @@ public class Saving extends Account {
 
         return (value * this.financialIncome) * months + value;
     }
+
+    @Override
+    public double transferMoney(Account destinyAccount, double value) {
+        if(getBalance() < value){
+            throw new RuntimeException("Dinheiro em poupança insuficiente");
+        }
+        return super.transferMoney(destinyAccount, value);
+    }
 }

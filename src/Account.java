@@ -54,7 +54,7 @@ public abstract class Account {
         return balance;
     }
 
-    public double transferMoney(Account destinyAccount, double value){
+    public double transferMoney(Account destinyAccount, double value) {
         this.withdrawalCash(value);
         destinyAccount.deposit(value);
         return balance;
